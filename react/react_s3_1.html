@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <link rel="stylesheet" href="main.css">
+
+  <title>Styling Components</title>
+</head>
+<body>
+  <div id="app">React has not rendered yet</div>
+
+  <script type="text/babel">
+
+    let Red = function() {
+      return(
+        <h1 className="red">Red</h1>
+      );
+    }
+
+    let Orange = function() {
+      return(
+        <h1 className="orange">Orange</h1>
+      );
+    }
+
+    let Yellow = function() {
+      return(
+        <h1 className="yellow">Yellow</h1>
+      );
+    }
+
+    let Green = function() {
+      return(
+        <h1 className="green">Green</h1>
+      );
+    }
+
+    let Blue = function() {
+      return(
+        <h1 className="blue">Blue</h1>
+      );
+    }
+
+    let Indigo = function() {
+      return(
+        <h1 className="indigo">Indigo</h1>
+      );
+    }
+
+    let Violet = function() {
+      return(
+        <h1 className="violet">Violet</h1>
+      );
+    }
+
+    ReactDOM.render(
+      //REACT WHAT, REACT WHERE
+      <div>
+        <Red/>
+        <Orange/>
+        <Yellow/>
+        <Green/>
+        <Blue/>
+        <Indigo/>
+        <Violet/>
+      </div>,
+      document.getElementById("app")
+    );
+</script>
+
+</body>
+</html>
