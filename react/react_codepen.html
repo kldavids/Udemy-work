@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+  <title>Codepen Challenge</title>
+</head>
+<body>
+  <div id="app">React has not rendered yet</div>
+
+  <script type="text/babel">
+
+// RENDER YOUR NAME AND AGE AND SOCIAL MEDIA PROFILE PIC TO THE DOM 
+//Challenge 1
+
+    // let PropExample = function(props) {
+    //     return (
+    //       <div>
+    //         <p>Hi, {props.name}</p>
+    //         <p>My age is: {props.age}</p>
+    //         <img src={props.img}/>
+    //       </div>
+    //     );
+    // }
+    // ReactDOM.render(
+    //   <PropExample 
+          // name="Kris"
+          // age="25"
+          // img="https://scontent.fyyc2-1.fna.fbcdn.net/v/t1.0-0/q83/s160x160/26991735_10155199517171517_6110081893500837440_n.jpg?_nc_cat=103&_nc_ht=scontent.fyyc2-1.fna&oh=4ff85c0420a8de78b32d5615f99e99da&oe=5D3D03AA"
+          // />,
+    //   document.getElementById("app")
+    // );
+
+//Challenge 2
+
+//     class PropExample extends React.Component {
+//       render() {
+//         return(
+//           <div>
+//             <p>Hi, {this.props.name}</p>
+//             <p>My age is: {this.props.age}</p>
+//             <img src={this.props.img}/>
+//           </div>
+//         );
+//       }
+//     }
+
+// ReactDOM.render(
+//   <PropExample name="Rob" age="34" img="https://scontent.fyyc2-1.fna.fbcdn.net/v/t1.0-0/q83/s160x160/26991735_10155199517171517_6110081893500837440_n.jpg?_nc_cat=103&_nc_ht=scontent.fyyc2-1.fna&oh=4ff85c0420a8de78b32d5615f99e99da&oe=5D3D03AA"/>,
+//   document.getElementById("app")
+// );
+
+// PASS PROPS FROM PARENT FULLNAME COMPONENT TO CHILDREN COMPONENTS - FIRSTNAME, PROFILE AND LASTNAME
+//Challenge 3
+    // class FirstName extends React.Component {
+    //   render() {
+    //     return(
+    //       <h1>First Name: {this.props.firstname}</h1>
+    //     );
+    //   }
+    // }
+
+    // class Profile extends React.Component {
+    //   render() {
+    //     return(
+    //       <img src={this.props.img}/>
+    //     );
+    //   }
+    // }
+
+    // class LastName extends React.Component {
+    //   render() {
+    //     return(
+    //       <h1>Last Name: {this.props.lastname}</h1>
+    //       );
+    //     }
+    // }
+
+    // class FullName extends React.Component {
+    //   render() {
+    //     return(
+    //       <div>
+    //         <FirstName firstname={this.props.firstname}/>
+    //         <LastName lastname={this.props.lastname}/>
+    //         <Profile img={this.props.img/>
+    //       </div>
+    //     );
+    //   }
+    // }
+            
+    // ReactDOM.render( 
+    //   <FullName 
+    //     firstname="Rob"
+    //     lastname="Merrill"
+    //     img="https://pbs.twimg.com/profile_images/699422966556168193/zUm4vhAo_400x400.jpg"
+    //     />,
+    //   document.getElementById("app")
+    // );
+
+// PASS PROPS FROM PARENT TO CHILDREN COMPONENTS
+//Challenge 4
+
+  //  let FirstName = function(props) {
+  //     return(
+  //       <h1>Firstname is: {props.firstname}</h1>
+  //     );
+  //   }
+
+  //   let Profile = function(props) {
+  //     return(
+  //       <img src={props.img}/>
+  //     );
+  //   }
+
+  //  let LastName = function(props) {
+  //     return(
+  //       <h1>Lastname is: {props.lastname}</h1>
+  //     );
+  //   }
+
+  //  let FullName = function(props) {
+  //     return(
+  //       <div>
+  //         <FirstName firstname={props.firstname}/>
+  //         <LastName lastname={props.lastname}/>
+  //         <Profile img={props.img}/>  
+  //       </div>
+  //     ); 
+  //   }
+            
+  //   ReactDOM.render(
+  //     <FullName 
+  //       firstname="Rob"
+  //       lastname="Merrill"
+  //       img="https://pbs.twimg.com/profile_images/699422966556168193/zUm4vhAo_400x400.jpg"
+  //     />,
+  //     document.getElementById("app")
+  //   );
+
+// PASS PROPS FROM PARENT TO CHILDREN COMPONENTS
+//Challenge 5
+
+class FirstName extends React.Component {
+  render() {
+    return(
+      <h1>{this.props.firstname}</h1>
+    );
+  }
+}
+
+class Profile extends React.Component {
+  render() {
+    return(
+      <img src={this.props.img}/>
+    );
+  }
+}
+
+class LastName extends React.Component {
+  render() {
+    return(
+      <h1>{this.props.lastname}</h1>
+      );
+    }
+ }
+
+class FullName extends React.Component {
+  render() {
+    return(
+      <div>
+        <FirstName firstname={this.props.user.firstname}/>
+        <LastName lastname={this.props.user.lastname}/>
+        <Profile img={this.props.user.img}/>
+      </div>
+    );
+  }
+}
+
+let person = {
+  firstname: "Rob",
+  lastname: "Merrill",
+  img: "https://pbs.twimg.com/profile_images/699422966556168193/zUm4vhAo_400x400.jpg"
+}
+
+ReactDOM.render(
+  <FullName user={person}/>,
+  document.getElementById("app")
+);
+
+  </script>
+
+</body>
+</html>
