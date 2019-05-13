@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- REACT LIBRARY -->
+  <script src="https://unpkg.com/react@15.5.4/dist/react.js"></script>
+  <!-- REACT DOM LIBRARY -->
+  <script src="https://unpkg.com/react-dom@15.5.4/dist/react-dom.js"></script>
+  <!-- BABEL LIBRARY -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <title>FriendLy</title>
+
+</head>
+<body>
+  <div id="app">React has not rendered yet</div>
+
+  <script type="text/babel">
+
+// FriendLy Complex Component
+function FriendLy(props) {
+  let malePeopleItem = props.people.filter(function(person) {
+    return person.gender === 'male';
+  }).map(function(person) {
+ 
+    let friendlyStyle ={
+        display: 'inline-block',
+        margin: 20,
+        height: 300,
+        width: 200,
+        padding: 0,
+        backgroundColor: '#FFF',
+        WebkitFilter: 'drop-shadow(0px 0px 5px #555)',
+        filter: 'drop-shadow(0px 0px 5px #555)'
+    };
+   
+      return <div key={person.id} style={friendlyStyle}>
+          <Avatar img={person.img}/>
+          <UserName name={person.name}/>
+          <GetConnected/>
+        </div>
+  });
+
+  let femalePeopleItem = props.people.filter(function(person) {
+    return person.gender === 'female';
+  }).map(function(person) {
+    
+    let friendlyStyle ={
+        display: 'inline-block',
+        margin: 20,
+        height: 300,
+        width: 200,
+        padding: 0,
+        backgroundColor: '#FFF',
+        WebkitFilter: 'drop-shadow(0px 0px 5px #555)',
+        filter: 'drop-shadow(0px 0px 5px #555)'
+    };
+    
+      return <div key={person.id} style={friendlyStyle}>
+          <Avatar img={person.img}/>
+          <UserName name={person.name}/>
+          <GetConnected/>
+        </div>
+  });
+
+  return( 
+    <div>
+      <h1>Males</h1>
+      <div>{malePeopleItem}</div>
+      <hr />
+      <h1>Females</h1>
+      <div>{femalePeopleItem}</div>
+    </div>
+  );
+}
+
+//Avatar Component
+    function Avatar(props){
+      let avatarStyle ={
+        marginLeft: 27,
+        marginTop: 20,
+        width: 150,
+        height: 150,
+        borderRadius: "50%"
+      }
+      return(
+        <img src={props.img} alt="profile pic" style={avatarStyle}/>
+      );
+    }
+
+//UserName Component
+    function UserName(props){
+      let nameStyle = {
+        fontSize: 24,
+        textAlign: "center",
+        fontFamily: "Arial, Helvetica, sans-serif",
+        margin: 20
+      }
+      return(
+        <h1 style={nameStyle}>{props.name}</h1>
+      );
+    }
+
+//GetConnected Complex Component
+    function GetConnected(){
+      let GetConnectedStyle = {
+        marginLeft: 15
+      }
+      return(
+        <div style={GetConnectedStyle}>
+          <Like/>
+          <Share/>
+          <Add/>
+        </div>
+      );
+    }
+
+      let iconStyle = {
+        margin:20
+      }
+
+      //Like Component
+      function Like() {
+        return(
+          <i className="fa fa-thumbs-o-up" aria-hidden="true" style={iconStyle}></i>
+        );
+      }
+
+      //Share Component
+      function Share() {
+        return(
+          <i className="fa fa-share" aria-hidden="true" style={iconStyle}></i>
+        );
+      }
+
+      //Add Component
+      function Add() {
+        return(
+          <i className="fa fa-users" aria-hidden="true" style={iconStyle}></i>
+        );
+      }
+
+      const people = [{id: 0, name: "Rob", gender: "male", img: "https://pbs.twimg.com/profile_images/699422966556168193/zUm4vhAo.jpg"},
+                {id: 1, name: "Charles", gender: "male", img:"https://static.pexels.com/photos/38630/bodybuilder-weight-training-stress-38630.jpeg"},
+                {id: 2,  name: "Natalie", gender: "female", img: "https://static.pexels.com/photos/509195/pexels-photo-509195.jpeg"},
+                {id: 3, name: "Jenny", gender: "female", img: "https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"},
+                {id: 4, name: "Sarah", gender: "female", img: "https://static.pexels.com/photos/324658/pexels-photo-324658.jpeg"},
+                {id: 5, name: "Josh", gender: "male", img: "https://images.pexels.com/photos/736716/pexels-photo-736716.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"},
+                {id: 6, name: "Kenny", gender: "male", img: "https://static.pexels.com/photos/325682/pexels-photo-325682.jpeg"},
+                {id: 7, name: "John", gender: "male", img: "https://static.pexels.com/photos/45882/man-crazy-funny-dude-45882.jpeg"},
+                {id: 8, name: "Alisha", gender: "female", img: "https://static.pexels.com/photos/38554/girl-people-landscape-sun-38554.jpeg"}
+                ];
+
+      
+  ReactDOM.render( 
+      <FriendLy 
+        people= {people}
+      />,
+      document.getElementById("app")
+    );
+
+  </script>
+</body>
+</html>
